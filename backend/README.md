@@ -1,4 +1,4 @@
-# CRASH TEST — backend
+# GAUNTLET — backend
 
 FastAPI service that runs the full pipeline: compile a natural-language
 strategy, backtest it, attack it with five crash tests, score it, gate it,

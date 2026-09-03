@@ -1,6 +1,6 @@
-# CRASH TEST — frontend
+# GAUNTLET — frontend
 
-A real dashboard wired to the CRASH TEST backend — every number on screen
+A real dashboard wired to the GAUNTLET backend — every number on screen
 comes from a live API call, nothing is mocked. Built with Vite + React +
 TypeScript + Tailwind v4, self-hosted fonts (no external CDN dependency
 during a demo).

@@ -1,4 +1,4 @@
-# CRASH TEST
+# GAUNTLET
 
 Don't ask AI what to trade. Ask it whether your strategy deserves to trade.
 

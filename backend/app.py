@@ -1,5 +1,5 @@
 """
-CRASH TEST backend — full pipeline.
+GAUNTLET backend — full pipeline.
 
 Idea -> Strategy -> Attack -> Robustness -> Gate -> Paper Trade -> Monitor
 
@@ -23,7 +23,7 @@ from risk.gate import evaluate_gate
 from trading.monitor import check_failure_regime
 from trading.paper import GateNotSatisfiedError, submit_paper_order
 
-app = FastAPI(title="CRASH TEST", version="0.2.0")
+app = FastAPI(title="GAUNTLET", version="0.2.0")
 
 # The frontend (Vite dev server / deployed static host) runs on a different
 # origin than this API, so the browser needs explicit CORS permission.

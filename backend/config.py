@@ -1,5 +1,5 @@
 """
-Central configuration for CRASH TEST.
+Central configuration for GAUNTLET.
 Loads all env vars in one place — nothing else in the codebase should call os.environ directly.
 """
 import os

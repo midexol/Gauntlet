@@ -1,4 +1,4 @@
-// Single point of contact with the CRASH TEST backend. Every network call
+// Single point of contact with the GAUNTLET backend. Every network call
 // in the app goes through here — components never call fetch() directly.
 const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:8000";
 

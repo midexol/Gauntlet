@@ -12,11 +12,11 @@ export function Hero({ onScrollToForm }: { onScrollToForm: () => void }) {
             <br />
             <span className="text-[var(--color-signal-amber)]">This one runs</span>
             <br />
-            the crash first.
+            the gauntlet first.
           </div>
 
           <p className="mt-8 max-w-xl text-[var(--color-ash)] text-base leading-relaxed">
-            Describe a strategy in plain English. CRASH TEST compiles it into
+            Describe a strategy in plain English. GAUNTLET compiles it into
             explicit rules, backtests it, then attacks it with five
             independent stress tests — different market eras, shaken
             parameters, a volatility spike, a synthetic trend reversal. Every

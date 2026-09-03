@@ -270,7 +270,7 @@ export default function App() {
       <div className="hazard-stripe" />
 
       <footer className="bg-[var(--color-ink)] text-[var(--color-ash)] px-6 py-8 text-xs font-mono">
-        CRASH TEST — built for the Alpaca AI Trading Agents Hackathon. Every number above came from a live call to the backend, not a mockup.
+        GAUNTLET — built for the Alpaca AI Trading Agents Hackathon. Every number above came from a live call to the backend, not a mockup.
       </footer>
     </div>
   );
