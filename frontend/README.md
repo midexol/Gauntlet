@@ -23,8 +23,7 @@ backend's `.env` includes `http://localhost:5173` (it does by default).
 - Every score, gate decision, metric, and order on screen is a live response
   from your backend — the hero's example gauge (89.7) is the only
   hardcoded number in the app, clearly labeled as an example.
-- The GitHub link in the hero is a placeholder — point it at your repo
-  before you submit.
+- The GitHub link in the hero points to https://github.com/midexol/Gauntlet.
 
 ## Production build
 

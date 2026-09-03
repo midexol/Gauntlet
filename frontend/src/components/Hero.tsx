@@ -32,7 +32,7 @@ export function Hero({ onScrollToForm }: { onScrollToForm: () => void }) {
               Run a strategy through it
             </button>
             <a
-              href="https://github.com"
+              href="https://github.com/midexol/Gauntlet"
               className="border border-[var(--color-panel-line)] px-6 py-3 font-mono text-sm hover:border-[var(--color-signal-amber)] transition-colors"
             >
               View the code
