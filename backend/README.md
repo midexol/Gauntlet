@@ -32,8 +32,8 @@ directly. Set these in `.env` at the repo root (shared with the frontend's
 | `ALPACA_API_KEY` / `ALPACA_SECRET_KEY` | yes | Alpaca **paper** trading keys — https://app.alpaca.markets/paper/dashboard/overview |
 | `ALPACA_PAPER` | yes | Must be `true`. The backend hard-blocks startup and every order path if it isn't — this build does not support live trading. |
 | `ALPACA_DATA_FEED` | no | `iex` (default, free) or `sip` if your account is entitled to it |
-| `LLM_API_KEY` | yes | Anthropic API key, used by the strategy compiler and crash analyst agents |
-| `LLM_MODEL` | no | Defaults to `claude-sonnet-4-5` if unset |
+| `LLM_API_KEY` | yes | Gemini API key (from [aistudio.google.com/apikey](https://aistudio.google.com/apikey)), used by the strategy compiler and crash analyst agents |
+| `LLM_MODEL` | no | Defaults to `gemini-3.6-flash` if unset |
 | `ROBUSTNESS_MIN_PASS` / `ROBUSTNESS_MIN_CONDITIONAL` | no | Risk gate score thresholds (spec §7-8), default 80 / 60 |
 | `MAX_DRAWDOWN_LIMIT_PCT` / `MAX_POSITION_SIZE_PCT` | no | Risk gate hard limits, default 20% / 10% |
 | `CRASH_TEST_ALLOWED_ORIGINS` | no | Comma-separated CORS allowlist for browser origins, default covers `localhost:5173` |
@@ -46,7 +46,7 @@ clear `config_problems` list if something's missing.
 
 ```
 app.py              FastAPI routes — one per pipeline stage
-agents/              strategy_compiler.py (NL -> Strategy contract), crash_analyst.py (results -> prose), llm_client.py (single Anthropic call site)
+agents/              strategy_compiler.py (NL -> Strategy contract), crash_analyst.py (results -> prose), llm_client.py (single Gemini call site)
 alpaca_client.py     single point of contact with Alpaca — data + paper order submission
 backtest/            deterministic engine, metrics, SMA-cross signal generation
 crash/               the 5 stress tests + engine.py that weights them into the robustness score

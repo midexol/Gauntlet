@@ -28,7 +28,7 @@ def explain(crash_test_summary: dict) -> dict:
     """Returns {"ok": True, "explanation": str} or {"ok": False, "error": str, "reason": str}."""
     evidence_payload = json.dumps(crash_test_summary, default=str)
     try:
-        explanation = call_llm(SYSTEM_PROMPT, evidence_payload, max_tokens=500)
+        explanation = call_llm(SYSTEM_PROMPT, evidence_payload, max_tokens=2000)
     except LLMClientError as e:
         return {"ok": False, "error": "llm_unavailable", "reason": str(e)}
 
