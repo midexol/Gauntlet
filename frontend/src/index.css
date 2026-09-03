@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0e1116;
+  --color-panel: #171b22;
+  --color-panel-line: #2a2f38;
+  --color-concrete: #ecefec;
+  --color-concrete-line: #d3d6d2;
+  --color-signal-amber: #ff8a1e;
+  --color-signal-amber-dim: #7a4515;
+  --color-signal-green: #2fae66;
+  --color-signal-red: #e23e3e;
+  --color-ash: #8b9098;
+
+  --font-display: "Big Shoulders", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-concrete);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* single deliberate motif: hazard stripe, used once as a section divider */
+.hazard-stripe {
+  height: 10px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-signal-amber) 0 14px,
+    var(--color-ink) 14px 28px
+  );
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal-amber);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
