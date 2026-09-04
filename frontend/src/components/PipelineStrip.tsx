@@ -21,6 +21,7 @@ export function PipelineStrip({ stages }: { stages: Stage[] }) {
           <div
             key={s.n}
             className={`flex items-center gap-2 border px-3 py-2 font-mono text-xs ${statusStyle[s.status]}`}
+            style={s.status === "active" ? { animation: "stage-pulse 1.4s ease-in-out infinite" } : undefined}
           >
             <span className="opacity-70">{String(s.n).padStart(2, "0")}</span>
             <span>{s.label}</span>

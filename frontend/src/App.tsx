@@ -2,8 +2,7 @@ import { useMemo, useRef, useState } from "react";
 import { Hero } from "./components/Hero";
 import { PipelineStrip, type Stage, type StageStatus } from "./components/PipelineStrip";
 import { StrategyForm } from "./components/StrategyForm";
-import { Gauge } from "./components/Gauge";
-import { ComponentScores } from "./components/ComponentScores";
+import { CrashSequence } from "./components/CrashSequence";
 import { GateVerdict } from "./components/GateVerdict";
 import { MetricsPanel } from "./components/MetricsPanel";
 import { ExplainPanel } from "./components/ExplainPanel";
@@ -209,10 +208,7 @@ export default function App() {
 
         {crashSummary && baselineMetrics && (
           <div className="space-y-6">
-            <div className="grid md:grid-cols-[220px_1fr] gap-8 items-center">
-              <Gauge value={crashSummary.robustness_score} label="robustness score" />
-              <ComponentScores results={crashSummary.results} />
-            </div>
+            <CrashSequence results={crashSummary.results} robustnessScore={crashSummary.robustness_score} />
             <MetricsPanel metrics={baselineMetrics} />
             <ExplainPanel runId={runId!} />
           </div>
