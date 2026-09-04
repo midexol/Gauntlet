@@ -54,4 +54,27 @@ def check_failure_regime(recent_df: pd.DataFrame, strategy: Strategy, crash_test
             "current_metrics": current_metrics,
         }
 
+    # Trend-reversal regime match: split the recent window in half and compare
+    # returns. A sign flip between the two halves, with enough combined swing,
+    # is the live version of the synthetic reversal the crash test simulates.
+    mid = len(recent_df) // 2
+    first_half_return_pct = float((recent_df["close"].iloc[mid] / recent_df["close"].iloc[0] - 1) * 100)
+    second_half_return_pct = float((recent_df["close"].iloc[-1] / recent_df["close"].iloc[mid] - 1) * 100)
+    swing_pct = abs(first_half_return_pct) + abs(second_half_return_pct)
+    current_metrics["first_half_return_pct"] = round(first_half_return_pct, 2)
+    current_metrics["second_half_return_pct"] = round(second_half_return_pct, 2)
+
+    trend_flipped = (first_half_return_pct > 0) != (second_half_return_pct > 0)
+    if "market_reversal" in high_severity and trend_flipped and swing_pct > 5:
+        return {
+            "alert": True,
+            "matched_test": "market_reversal",
+            "message": (
+                f"CRASH ALERT: the recent trend flipped sign (first half {first_half_return_pct:+.1f}%, "
+                f"second half {second_half_return_pct:+.1f}%) and this strategy previously scored HIGH "
+                f"severity on the market reversal test — this is the same failure regime it was flagged for."
+            ),
+            "current_metrics": current_metrics,
+        }
+
     return {"alert": False, "matched_test": None, "message": "No known failure regime currently matched.", "current_metrics": current_metrics}
