@@ -18,6 +18,10 @@ frontend/   React dashboard wired to the live backend (see frontend/README.md)
 dev.sh      Runs both together for local development
 ```
 
+See [ARCHITECTURE.md](ARCHITECTURE.md) for how the pieces connect end to end —
+system diagram, pipeline stage-by-stage, and where the two safety rules are
+actually enforced in code.
+
 ## Quickest path to running it locally
 
 ```bash
