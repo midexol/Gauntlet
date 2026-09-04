@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: gauntlet-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ALPACA_API_KEY
+        sync: false
+      - key: ALPACA_SECRET_KEY
+        sync: false
+      - key: ALPACA_PAPER
+        value: "true"
+      - key: ALPACA_DATA_FEED
+        value: iex
+      - key: LLM_API_KEY
+        sync: false
+      - key: LLM_MODEL
+        value: gemini-3.6-flash
+      - key: ROBUSTNESS_MIN_PASS
+        value: "80"
+      - key: ROBUSTNESS_MIN_CONDITIONAL
+        value: "60"
+      - key: MAX_DRAWDOWN_LIMIT_PCT
+        value: "20"
+      - key: MAX_POSITION_SIZE_PCT
+        value: "10"
+      - key: CRASH_TEST_ALLOWED_ORIGINS
+        sync: false

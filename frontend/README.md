@@ -37,15 +37,19 @@ npm run preview    # serve the production build locally to sanity-check it
 lablab.ai requires a working prototype reachable by URL. Two free options
 that work well for a weekend:
 
-**Frontend:** Vercel or Netlify — connect the repo, set the root directory
-to `frontend/`, build command `npm run build`, output directory `dist`,
-and set the `VITE_API_URL` environment variable to your deployed backend's
-URL.
+**Frontend:**
+- **Netlify**: the repo root has a `netlify.toml` (base `frontend/`,
+  build `npm run build`, publish `dist`) — connect the repo and it's
+  preconfigured. Add `VITE_API_URL` (your deployed backend's URL) in
+  Site settings > Environment variables.
+- **Vercel**: connect the repo, set Root Directory to `frontend/` in
+  the project settings (Vercel auto-detects Vite for the rest), and
+  add `VITE_API_URL` as an environment variable.
 
-**Backend:** Railway or Render — point at `backend/`, start command
-`uvicorn app:app --host 0.0.0.0 --port $PORT`, and set all the env vars
-from `.env.example` (your real Alpaca paper keys and LLM key). Add your
-deployed frontend's URL to `CRASH_TEST_ALLOWED_ORIGINS`.
+**Backend:** see `backend/README.md`'s deploy section — a `render.yaml`
+blueprint and a `backend/Procfile` (for Railway) are both in the repo.
+Whichever you use, add your deployed frontend's URL to
+`CRASH_TEST_ALLOWED_ORIGINS` once you have it.
 
 Once both are live, `/docs` on your backend also works as a fallback demo
 surface if anything in the frontend misbehaves live on stage.

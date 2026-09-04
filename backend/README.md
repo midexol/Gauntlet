@@ -64,11 +64,15 @@ each endpoint against real Alpaca paper data.
 
 ## Deploying (Railway / Render)
 
-Point the service at `backend/`, start command:
+**Render**: the repo root has a `render.yaml` blueprint. In the Render
+dashboard, New > Blueprint, point at this repo, and it configures the
+service (root dir, build/start commands) automatically. You'll still be
+prompted to fill in the `sync: false` env vars (the real secrets) and
+`CRASH_TEST_ALLOWED_ORIGINS` once your frontend URL exists.
 
-```bash
-uvicorn app:app --host 0.0.0.0 --port $PORT
-```
+**Railway**: auto-detects Python via `requirements.txt`; `backend/Procfile`
+supplies the start command. Set the root directory to `backend/` in the
+service settings and add the same env vars from the table above.
 
-Set every env var from the table above (real Alpaca paper keys + LLM key),
-and add your deployed frontend's URL to `CRASH_TEST_ALLOWED_ORIGINS`.
+Either way, add your deployed frontend's URL to `CRASH_TEST_ALLOWED_ORIGINS`
+once you have it.
