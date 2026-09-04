@@ -12,7 +12,7 @@ export function StrategyForm({
   );
 
   return (
-    <div className="border border-[var(--color-concrete-line)] bg-white/40 p-6">
+    <div className="lift-on-hover rounded-2xl border border-[var(--color-concrete-line)] bg-white/40 p-6">
       <label htmlFor="strategy" className="block text-sm font-semibold mb-2">
         Describe your strategy in plain English
       </label>
@@ -21,7 +21,7 @@ export function StrategyForm({
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         rows={3}
-        className="w-full border border-[var(--color-concrete-line)] bg-white p-3 font-mono text-sm focus:border-[var(--color-signal-amber)] outline-none"
+        className="w-full rounded-lg border border-[var(--color-concrete-line)] bg-white p-3 font-mono text-sm focus:border-[var(--color-signal-amber)] outline-none transition-colors"
       />
       <div className="mt-1 text-xs text-[var(--color-ash)]">
         MVP compiles SMA-crossover strategies only — the compiler will tell you plainly if it can't parse yours rather than guessing.
@@ -29,7 +29,7 @@ export function StrategyForm({
       <button
         onClick={() => onSubmit(description)}
         disabled={loading || !description.trim()}
-        className="mt-4 bg-[var(--color-ink)] text-[var(--color-concrete)] font-mono font-semibold px-6 py-3 disabled:opacity-40 hover:bg-black transition-colors"
+        className="mt-4 rounded-lg bg-[var(--color-ink)] text-[var(--color-concrete)] font-mono font-semibold px-6 py-3 disabled:opacity-40 hover:bg-black hover:-translate-y-0.5 transition-all"
       >
         {loading ? "Compiling…" : "Compile strategy"}
       </button>

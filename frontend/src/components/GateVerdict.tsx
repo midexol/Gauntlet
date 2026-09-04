@@ -12,7 +12,7 @@ export function GateVerdict({ gate }: { gate: GateDecision }) {
     <div
       key={gate.decision}
       style={{ background: s.bg, color: s.text, animation: "stamp-in 480ms cubic-bezier(.2,1.4,.4,1) both" }}
-      className="p-5"
+      className="rounded-2xl p-5"
     >
       <div className="font-display font-extrabold text-3xl uppercase tracking-tight">{gate.decision}</div>
       <div className="text-sm font-mono opacity-80 mt-1">robustness score {gate.score.toFixed(1)}</div>

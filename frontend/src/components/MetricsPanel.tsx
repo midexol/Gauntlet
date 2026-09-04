@@ -2,7 +2,7 @@ import type { BaselineMetrics } from "../lib/api";
 
 function Metric({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border border-[var(--color-concrete-line)] p-3">
+    <div className="lift-on-hover rounded-xl border border-[var(--color-concrete-line)] bg-white/40 p-3">
       <div className="text-[11px] text-[var(--color-ash)]">{label}</div>
       <div className="font-mono text-lg">{value}</div>
     </div>

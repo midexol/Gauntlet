@@ -8,7 +8,7 @@ export interface Stage {
 
 const statusStyle: Record<StageStatus, string> = {
   pending: "border-[var(--color-panel-line)] text-[var(--color-ash)]",
-  active: "border-[var(--color-signal-amber)] text-[var(--color-signal-amber)]",
+  active: "border-[var(--color-signal-amber)] text-[var(--color-signal-amber)] scale-105",
   done: "border-[var(--color-signal-green)] text-[var(--color-signal-green)]",
   error: "border-[var(--color-signal-red)] text-[var(--color-signal-red)]",
 };
@@ -20,7 +20,7 @@ export function PipelineStrip({ stages }: { stages: Stage[] }) {
         {stages.map((s) => (
           <div
             key={s.n}
-            className={`flex items-center gap-2 border px-3 py-2 font-mono text-xs ${statusStyle[s.status]}`}
+            className={`flex items-center gap-2 rounded-full border px-3 py-2 font-mono text-xs transition-transform duration-300 ${statusStyle[s.status]}`}
             style={s.status === "active" ? { animation: "stage-pulse 1.4s ease-in-out infinite" } : undefined}
           >
             <span className="opacity-70">{String(s.n).padStart(2, "0")}</span>

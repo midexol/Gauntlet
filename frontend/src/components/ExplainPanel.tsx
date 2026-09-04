@@ -23,13 +23,13 @@ export function ExplainPanel({ runId }: { runId: number }) {
   };
 
   return (
-    <div className="border border-[var(--color-concrete-line)] p-5 bg-white/40">
+    <div className="lift-on-hover rounded-xl border border-[var(--color-concrete-line)] p-5 bg-white/40">
       <div className="flex items-center justify-between">
         <div className="text-sm font-semibold">Ask the crash analyst to explain this</div>
         <button
           onClick={fetchExplanation}
           disabled={loading}
-          className="text-xs font-mono border border-[var(--color-ink)] px-3 py-1.5 disabled:opacity-40 hover:bg-[var(--color-ink)] hover:text-[var(--color-concrete)] transition-colors"
+          className="rounded-lg text-xs font-mono border border-[var(--color-ink)] px-3 py-1.5 disabled:opacity-40 hover:bg-[var(--color-ink)] hover:text-[var(--color-concrete)] transition-colors"
         >
           {loading ? "Thinking…" : text ? "Regenerate" : "Explain"}
         </button>

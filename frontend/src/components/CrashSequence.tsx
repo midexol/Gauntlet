@@ -66,7 +66,7 @@ export function CrashSequence({
           return (
             <div
               key={r.test_type}
-              className="p-1 -m-1"
+              className="rounded-lg p-1 -m-1"
               style={revealed ? ({ ["--flash-color" as string]: color, animation: "attack-flash 550ms ease-out" }) : undefined}
             >
               <div className="flex justify-between text-xs font-mono mb-1">
@@ -79,11 +79,11 @@ export function CrashSequence({
                   </span>
                 )}
               </div>
-              <div className="h-2 bg-[var(--color-panel-line)] w-full overflow-hidden">
+              <div className="h-2 rounded-full bg-[var(--color-panel-line)] w-full overflow-hidden">
                 {revealed ? (
-                  <div className="h-2 transition-[width] duration-500" style={{ width: `${Math.min(100, r.score)}%`, background: color }} />
+                  <div className="h-2 rounded-full transition-[width] duration-500" style={{ width: `${Math.min(100, r.score)}%`, background: color }} />
                 ) : (
-                  <div className="h-2 w-1/3 bg-[var(--color-ash)]" style={{ animation: "attack-pending 1.1s ease-in-out infinite" }} />
+                  <div className="h-2 rounded-full w-1/3 bg-[var(--color-ash)]" style={{ animation: "attack-pending 1.1s ease-in-out infinite" }} />
                 )}
               </div>
               {revealed && !r.passed && r.failure_reason && (
